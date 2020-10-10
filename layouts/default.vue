@@ -7,10 +7,3 @@
     </v-main>
   </v-app>
 </template>
-
-<style lang="scss">
-  .container {
-    display: flex;
-    justify-content: center;
-  }
-</style>
