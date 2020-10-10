@@ -1,0 +1,26 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
+  "files.autoSave": "afterDelay",
+  "files.eol": "\n",
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.validate": [
+    "html",
+    "css",
+    "javascript",
+    "scss",
+    "vue"
+  ],
+  "vetur.validation.template": false
+}

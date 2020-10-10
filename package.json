@@ -26,14 +26,21 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.5.0",
     "eslint": "^7.10.0",
+    "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.12.0",
+    "eslint-config-vue": "^2.0.2",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.5.0",
     "prettier": "^2.1.2",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-sass-guidelines": "^7.1.0",
     "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
     "vue-jest": "^3.0.4"
   }
 }
