@@ -10,7 +10,13 @@ module.exports = {
     'value-keyword-case': 'lower',
     'property-case': 'lower',
     'rule-empty-line-before': 'always',
-    'order/properties-alphabetical-order': true
+    'order/properties-alphabetical-order': true,
+    'selector-pseudo-element-no-unknown': [
+      true,
+      {
+        ignorePseudoElements: ['v-deep']
+      }
+    ]
   },
   plugins: ['stylelint-order', 'stylelint-scss']
 };
