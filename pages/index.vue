@@ -10,22 +10,25 @@
     </h1>
     <InputComponent @input="searchSerie" @clean-dropdown="cleanDropdown()" />
     <DropdownComponent :items="seriesList" @add="addSerie" @remove="removeSelectedSerie" />
+    <ListComponent :items="seriesWatched" @remove="removeSelectedSerie" />
   </div>
 </template>
 
 <script>
 import InputComponent from '@/components/input/input.component';
 import DropdownComponent from '@/components/dropdown/dropdown.component';
+import ListComponent from '@/components/list/list.component';
 
 export default {
   components: {
     InputComponent,
-    DropdownComponent
+    DropdownComponent,
+    ListComponent
   },
   data() {
     return {
       seriesList: [],
-      selectedSeriesList: []
+      seriesWatched: []
     };
   },
   methods: {
@@ -39,14 +42,11 @@ export default {
       let filteredSeriesList = [];
       const seriesListClone = [...seriesList];
 
-      this.selectedSeriesList.forEach(selectedSerie => {
+      this.seriesWatched.forEach(selectedSerie => {
         seriesListClone.forEach((serie, index) => {
           if (selectedSerie.id === serie.id) {
             seriesListClone.splice(index, 1);
-            filteredSeriesList.push({
-              ...selectedSerie,
-              selected: true
-            });
+            filteredSeriesList.push(selectedSerie);
           }
         });
       });
@@ -64,7 +64,11 @@ export default {
     },
 
     addSerie(serie) {
-      this.selectedSeriesList.push(serie);
+      this.seriesWatched.push({
+        ...serie,
+        selected: true,
+        date_added: new Date()
+      });
       this.removeSerie(serie);
     },
 
@@ -73,16 +77,24 @@ export default {
     },
 
     removeSelectedSerie(serie) {
-      this.selectedSeriesList = this.selectedSeriesList.filter(item => item.id !== serie.id);
+      let hasChanged = false;
+      this.seriesWatched = this.seriesWatched.filter(item => item.id !== serie.id);
       this.seriesList = this.seriesList.map(item => {
         if (item.id === serie.id) {
+          hasChanged = true;
           return {
-            ...serie,
+            ...item,
             selected: false
           };
         }
-        return serie;
+        return item;
       });
+      if (!hasChanged && this.seriesList.length) {
+        this.seriesList.push({
+          ...serie,
+          selected: false
+        });
+      }
     }
   }
 };
