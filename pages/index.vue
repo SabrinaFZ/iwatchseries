@@ -33,8 +33,7 @@ export default {
   },
   methods: {
     async searchSerie(serieTitle) {
-      const series = await this.$axios
-        .$get(`${process.env.tmbdBaseUrl}search/tv?api_key=${process.env.tmbdApiKey}&language=en-US&query=${serieTitle}`);
+      const series = await this.$services.series.fetch(serieTitle);
       this.filterSeries(series.results.slice(0, 5));
     },
 
