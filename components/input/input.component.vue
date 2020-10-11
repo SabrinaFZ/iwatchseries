@@ -6,6 +6,7 @@
     outlined
     hide-details
     color="#eb6363"
+    clearable
     @focus="expandInput()"
     @input="onInput()"
   />
