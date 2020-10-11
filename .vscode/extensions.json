@@ -5,6 +5,7 @@
     "esbenp.prettier-vscode",
     "oderwat.indent-rainbow",
     "hollowtree.vue-snippets",
-    "stylelint.vscode-stylelint"
+	"stylelint.vscode-stylelint",
+	"editorconfig.editorconfig"
   ]
 }
