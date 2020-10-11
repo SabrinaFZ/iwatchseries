@@ -62,7 +62,7 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
   env: {
-    tmbdApiKey: process.env.TMBD_API_KEY || 'e53ed30d9e273053803f465b52b55158',
+    tmbdApiKey: process.env.TMBD_API_KEY,
     tmbdBaseUrl:
       process.env.TMDB_BASE_URL || 'https://api.themoviedb.org/3/'
   }
