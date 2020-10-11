@@ -30,7 +30,7 @@ module.exports = {
     'arrow-parens': ['warn', 'as-needed'],
     'comma-dangle': ['error', 'never'],
     'no-underscore-dangle': 'off',
-    'max-len': ['error', { code: 100, tabWidth: 4 }],
+    'max-len': ['error', { code: 200, tabWidth: 4 }],
     'no-param-reassign': ['off'],
     'import/extensions': ['error', 'never', { scss: 'always' }],
     'import/no-extraneous-dependencies': [

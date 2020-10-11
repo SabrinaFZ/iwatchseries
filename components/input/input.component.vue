@@ -4,9 +4,9 @@
     :class="{'expanded': expand}"
     label="I have watched..."
     outlined
+    hide-details
     color="#eb6363"
     @focus="expandInput()"
-    @blur="expandInput()"
     @input="onInput()"
   />
 </template>
@@ -21,13 +21,14 @@ export default {
   },
   methods: {
     expandInput() {
-      this.expand = !this.expand;
-      if (!this.expand) {
-        this.text = '';
-      }
+      this.expand = true;
     },
     onInput() {
-      this.$emit('input', this.text);
+      if (this.text) {
+        this.$emit('input', this.text);
+      } else {
+        this.$emit('clean-dropdown');
+      }
     }
   }
 };
@@ -35,6 +36,7 @@ export default {
 
 <style lang="scss" scoped>
   .v-input {
+    margin-bottom: 0;
     transition: width 0.5s ease-in-out;
     width: 40%;
 
