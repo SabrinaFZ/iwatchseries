@@ -2,10 +2,10 @@
   <div class="container">
     <h1>
       <v-img
-        lazy-src="/logo.png"
+        :lazy-src="require('~/assets/images/logo.svg')"
         max-height="200"
         max-width="200"
-        src="/logo.png"
+        :src="require('~/assets/images/logo.svg')"
       />
     </h1>
     <InputComponent @input="searchSerie" @clean-dropdown="cleanDropdown()" />
@@ -30,6 +30,9 @@ export default {
       seriesList: [],
       seriesWatched: []
     };
+  },
+  async created() {
+    this.seriesWatched = await this.$services.series.get();
   },
   methods: {
     async searchSerie(serieTitle) {
@@ -62,12 +65,13 @@ export default {
       this.seriesList = [];
     },
 
-    addSerie(serie) {
-      this.seriesWatched.push({
+    async addSerie(serie) {
+      const serieWatched = {
         ...serie,
         selected: true,
         date_added: new Date()
-      });
+      };
+      this.seriesWatched = await this.$services.series.save(serieWatched);
       this.removeSerie(serie);
     },
 
@@ -75,9 +79,9 @@ export default {
       this.seriesList = this.seriesList.filter(item => item.id !== serie.id);
     },
 
-    removeSelectedSerie(serie) {
+    async removeSelectedSerie(serie) {
       let hasChanged = false;
-      this.seriesWatched = this.seriesWatched.filter(item => item.id !== serie.id);
+      this.seriesWatched = await this.$services.series.remove(serie);
       this.seriesList = this.seriesList.map(item => {
         if (item.id === serie.id) {
           hasChanged = true;
