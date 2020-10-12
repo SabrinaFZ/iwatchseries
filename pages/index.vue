@@ -31,7 +31,7 @@ export default {
       seriesWatched: []
     };
   },
-  async created() {
+  async mounted() {
     this.seriesWatched = await this.$services.series.get();
   },
   methods: {

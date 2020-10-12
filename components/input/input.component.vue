@@ -40,9 +40,15 @@ export default {
     margin-bottom: 0;
     transition: width 0.5s ease-in-out;
     width: 40%;
+    @include mobile {
+      width: 100%;
+    }
 
     &.expanded {
-       width: 80%;
+      width: 80%;
+      @include mobile {
+        width: 100%;
+      }
     }
   }
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <div v-if="items.length" class="list-component">
+  <div v-if="items.length" class="list-component fle">
     <transition-group name="list">
       <v-card
         v-for="item in items"
         :key="item.id"
         tile
       >
-        <div class="container d-flex flex-no-wrap align-center">
-          <v-avatar size="60">
+        <div :class="`container d-flex flex-no-wrap align-center ${$device.isMobile ? 'flex-column' : ''}`">
+          <v-avatar v-if="!$device.isMobile" size="60">
             <v-img :alt="`${item.name}_poster`" :src="`https://image.tmdb.org/t/p/w500${item.poster_path}`" />
           </v-avatar>
           <div class="container">
@@ -64,6 +64,9 @@ export default {
 <style lang="scss" scoped>
   .list-component {
     width: 80%;
+    @include mobile {
+      width: 100%;
+    }
   }
 
   .v-card {
@@ -77,11 +80,13 @@ export default {
     margin-right: 10px;
   }
 
-  .list-enter-active, .list-leave-active {
+  .list-enter-active,
+  .list-leave-active {
     transition: all 0.5s;
   }
 
-  .list-enter, .list-leave-to {
+  .list-enter,
+  .list-leave-to {
     opacity: 0;
     transform: translateX(10px);
   }
