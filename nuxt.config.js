@@ -19,7 +19,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-		'~/assets/main.scss'
+		'~/styles/main.scss'
 	],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -40,11 +40,11 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/device'],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['~/styles/partials/_variables.scss'],
     theme: {
       dark: true,
       themes: {
@@ -62,10 +62,16 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+	},
   env: {
     tmbdApiKey: process.env.TMBD_API_KEY,
     tmbdBaseUrl:
       process.env.TMDB_BASE_URL || 'https://api.themoviedb.org/3/'
-  }
+	},
+	styleResources: {
+        scss: [
+            '~/styles/partials/_mixins.scss'
+        ]
+    }
 };

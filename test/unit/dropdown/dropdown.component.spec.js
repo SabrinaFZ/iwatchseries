@@ -6,6 +6,10 @@ describe('DropdownComponent', () => {
   let wrapper = null;
   beforeEach(() => {
     wrapper = mount(DropdownComponent);
+    wrapper.vm.$device = {
+      isMobile: false,
+      isDesktop: true
+    };
   });
   it('not render Dropdown component without items', () => {
     const component = wrapper.find('.v-list');

@@ -1,0 +1,12 @@
+@import './partials/mixins';
+@import './partials/variables';
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}

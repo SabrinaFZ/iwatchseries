@@ -7,7 +7,7 @@
             v-for="item in items"
             :key="item.id"
           >
-            <v-list-item-avatar height="60px" width="60px">
+            <v-list-item-avatar v-if="$device.isDesktop" height="60px" width="60px">
               <v-img
                 v-if="item.poster_path"
                 :alt="`${item.name}_poster`"
@@ -69,6 +69,9 @@ export default {
 <style lang="scss" scoped>
   .v-list {
     width: 80%;
+    @include mobile {
+      width: 100%;
+    }
   }
 
   .slide-fade-enter-active {
@@ -79,7 +82,8 @@ export default {
     transition: all 0.5s ease-in-out;
   }
 
-  .slide-fade-enter, .slide-fade-leave-to {
+  .slide-fade-enter,
+  .slide-fade-leave-to {
     opacity: 0;
     transform: translateY(-10px);
   }
@@ -89,11 +93,13 @@ export default {
     margin-right: 10px;
   }
 
-  .list-enter-active, .list-leave-active {
+  .list-enter-active,
+  .list-leave-active {
     transition: all 0.5s;
   }
 
-  .list-enter, .list-leave-to {
+  .list-enter,
+  .list-leave-to {
     opacity: 0;
     transform: translateX(10px);
   }

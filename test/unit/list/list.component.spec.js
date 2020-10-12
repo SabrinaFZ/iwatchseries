@@ -6,6 +6,10 @@ describe('ListComponent', () => {
   let wrapper = null;
   beforeEach(() => {
     wrapper = mount(ListComponent);
+    wrapper.vm.$device = {
+      isMobile: false,
+      isDesktop: true
+    };
   });
   it('not render ListComponent with no items', () => {
     const component = wrapper.find('.list-component');
