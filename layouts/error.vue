@@ -1,20 +1,22 @@
 <template>
-  <v-app dark>
+  <div class="container">
+    <v-img
+      :lazy-src="require('~/assets/images/logo.svg')"
+      max-height="200"
+      max-width="200"
+      :src="require('~/assets/images/logo.svg')"
+    />
     <h1 v-if="error.statusCode === 404">
       {{ pageNotFound }}
     </h1>
     <h1 v-else>
       {{ otherError }}
     </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
-  </v-app>
+  </div>
 </template>
 
 <script>
 export default {
-  layout: 'empty',
   props: {
     error: {
       type: Object,
@@ -23,8 +25,8 @@ export default {
   },
   data() {
     return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      pageNotFound: 'Ups, Page Not Found!',
+      otherError: 'Ups, an error occurred!'
     };
   },
   head() {
@@ -37,6 +39,14 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+}
+
 h1 {
   font-size: 20px;
 }
