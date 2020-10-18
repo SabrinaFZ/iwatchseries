@@ -16,7 +16,7 @@
               v-text="item.name"
             />
             <v-card-subtitle v-if="item.date_added">
-              Date added: {{ formatDate(new Date(item.date_added)) }}
+              {{ $t('label.DATE_ADDED') }}: {{ formatDate(new Date(item.date_added)) }}
             </v-card-subtitle>
           </div>
           <v-card-actions>
