@@ -25,8 +25,8 @@ export default {
   },
   data() {
     return {
-      pageNotFound: 'Ups, Page Not Found!',
-      otherError: 'Ups, an error occurred!'
+      pageNotFound: this.$t('error.PAGE_NOT_FOUND'),
+      otherError: this.$t('error.ERROR_FOUND')
     };
   },
   head() {

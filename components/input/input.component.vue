@@ -2,7 +2,7 @@
   <v-text-field
     v-model="text"
     :class="{'expanded': expand}"
-    label="I have watched..."
+    :label="$t('input.HAVE_WATCHED')"
     outlined
     hide-details
     color="#eb6363"

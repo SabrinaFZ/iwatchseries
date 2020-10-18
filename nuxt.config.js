@@ -40,7 +40,7 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxtjs/style-resources', '@nuxtjs/device'],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/device', 'nuxt-i18n'],
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
@@ -70,8 +70,21 @@ export default {
       process.env.TMDB_BASE_URL || 'https://api.themoviedb.org/3/'
 	},
 	styleResources: {
-        scss: [
-            '~/styles/partials/_mixins.scss'
-        ]
-    }
+			scss: [
+					'~/styles/partials/_mixins.scss'
+			]
+	},
+	i18n: {
+		locales: [
+			{ code: 'en', iso: 'en-US', file: 'en.js', name: 'English', icon: 'uk' },
+  		{ code: 'es', iso: 'es-ES', file: 'es.js', name: 'Español', icon: 'spain' }
+		],
+		langDir: 'locales/',
+		defaultLocale: 'en',
+		strategy: 'prefix',
+		lazy: true,
+		detectBrowserLanguage: {
+    	useCookie: false
+  	}
+  }
 };
