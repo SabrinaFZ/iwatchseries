@@ -1,20 +1,32 @@
 # iwatchseries
 
-## Build Setup
+## Pre-requisites
 
-```bash
-# install dependencies
-$ npm install
+- Install [Docker](https://www.docker.com/products/docker-desktop)
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## Install
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+1. Build the Docker image
+```
+docker-compose build
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+2. Run the Docker container
+```
+docker-compose up -d
+```
+
+3. Open the app: http://localhost:3000
+
+## Run tests
+```
+docker-compose run --rm app npm run test
+```
+
+## Build the app
+```
+docker-compose run --rm app npm run build
+```
+
+## Authors
+- SabrinaFZ
